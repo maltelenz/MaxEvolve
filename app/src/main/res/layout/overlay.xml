@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="0dp"
+    android:background="@drawable/background"
+    android:padding="2dp" >
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:divider="@drawable/vertical_divider"
+        android:showDividers="middle">
+
+        <TextView
+            android:id="@+id/textview_base"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="12"
+            android:textColor="#FFF"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <LinearLayout
+            android:id="@+id/listing"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/vertical_divider_numbers"
+            android:showDividers="middle">
+
+            <include layout="@layout/evolve_number" />
+            <include layout="@layout/candy_number" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>
