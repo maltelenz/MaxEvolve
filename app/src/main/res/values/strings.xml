@@ -63,4 +63,6 @@
     <string name="bases_dialog">Candies for a single evolve</string>
     <string name="bases_summary">Which candy levels to show</string>
     <string name="bases_title">Candy levels</string>
+    <string name="prefs">Preferences</string>
+    <string name="quit">Quit</string>
 </resources>

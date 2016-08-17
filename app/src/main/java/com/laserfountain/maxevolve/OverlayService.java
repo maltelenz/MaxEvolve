@@ -11,6 +11,7 @@ import android.util.Log;
 public class OverlayService extends Service {
 
     protected boolean foreground = false;
+    private boolean firstStart;
 
     private final int NOTIFICATION_ID = 1;
 
@@ -27,12 +28,21 @@ public class OverlayService extends Service {
     }
 
     @Override
+    public void onCreate() {
+        firstStart = true;
+        super.onCreate();
+    }
+
+    @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d("OverlayService", "onStartCommand");
-        if (intent != null) {
+        if (firstStart) {
+            toggle(true);
+        } else if (intent != null && intent.hasExtra(getString(R.string.showExtra))) {
             Log.d("OverlayService", "Intent is not null");
             toggle(intent.getBooleanExtra(getString(R.string.showExtra), false));
         }
+        firstStart = false;
         return START_STICKY;
     }
 

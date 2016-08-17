@@ -62,6 +62,9 @@ public class EvolveCounterOverlayService extends OverlayService {
         Intent settingsIntent = new Intent(this, SettingsActivity.class);
         PendingIntent pendingSettings = PendingIntent.getActivity(this, 42, settingsIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
+        Intent quitIntent = new Intent(this, StopServiceActivity.class);
+        PendingIntent pendingQuit = PendingIntent.getActivity(this, 43, quitIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
         Boolean shown;
         if (overlayView != null && overlayView.overlayIsShown()) {
             shown = true;
@@ -78,7 +81,8 @@ public class EvolveCounterOverlayService extends OverlayService {
                         .setAutoCancel(false)
                         .setPriority(Notification.PRIORITY_HIGH)
                         .setOnlyAlertOnce(true)
-                        .addAction(R.drawable.ic_settings_black_48dp, "Settings", pendingSettings);
+                        .addAction(R.drawable.ic_settings_black_24dp, getString(R.string.prefs), pendingSettings)
+                        .addAction(R.drawable.ic_power_settings_new_black_24dp, getString(R.string.quit), pendingQuit);
 
         if (shown) {
             builder.setContentText(getString(R.string.message_hide));
