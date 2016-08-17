@@ -22,7 +22,7 @@ public class EvolveCounterOverlayView extends OverlayView {
     }
 
     public int getGravity() {
-        return Gravity.TOP + Gravity.END;
+        return Gravity.TOP + Gravity.START;
     }
 
     @Override
@@ -39,8 +39,9 @@ public class EvolveCounterOverlayView extends OverlayView {
         moreCandies = (TextView) this.findViewById(R.id.textview_nr_candies_more);
 
         // Adjust display of main counter
-        exactNr.setTextSize(22);
-        exactCandies.setTextSize(22);
+        int largerText = 20;
+        exactNr.setTextSize(largerText);
+        exactCandies.setTextSize(largerText);
         exactNr.setTextColor(getResources().getColor(android.R.color.white));
         exactCandies.setTextColor(getResources().getColor(android.R.color.white));
 

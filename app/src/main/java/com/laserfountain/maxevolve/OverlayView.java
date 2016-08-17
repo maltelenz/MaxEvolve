@@ -48,7 +48,7 @@ public abstract class OverlayView extends RelativeLayout {
                 PixelFormat.TRANSLUCENT
         );
 
-        layoutParameters.gravity = Gravity.TOP;
+        layoutParameters.gravity = getGravity();
     }
 
     private void inflateView() {
