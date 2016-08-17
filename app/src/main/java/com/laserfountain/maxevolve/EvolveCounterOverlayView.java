@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 public class EvolveCounterOverlayView extends OverlayView {
 
-    private static final float SCROLL_FACTOR = 40;
+    private static final float SCROLL_FACTOR = 60;
     private TextView base;
     private TextView lessNr;
     private TextView lessCandies;
@@ -27,7 +27,7 @@ public class EvolveCounterOverlayView extends OverlayView {
 
     @Override
     protected void onInflateView() {
-        counter = new Counter();
+        counter = new Counter(getContext());
 
         base = (TextView) this.findViewById(R.id.textview_base);
 

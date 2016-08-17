@@ -60,7 +60,7 @@ public class EvolveCounterOverlayService extends OverlayService {
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
         Intent settingsIntent = new Intent(this, SettingsActivity.class);
-        PendingIntent pendingSettings = PendingIntent.getActivity(this, 42, settingsIntent, PendingIntent.FLAG_ONE_SHOT);
+        PendingIntent pendingSettings = PendingIntent.getActivity(this, 42, settingsIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         Boolean shown;
         if (overlayView != null && overlayView.overlayIsShown()) {

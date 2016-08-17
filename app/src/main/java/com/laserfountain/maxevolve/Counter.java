@@ -1,10 +1,20 @@
 package com.laserfountain.maxevolve;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.util.Log;
+
+import java.util.HashSet;
+import java.util.Set;
+
 public class Counter {
     private int base;
     private int nr;
+    private Context context;
 
-    public Counter() {
+    public Counter(Context context) {
+        this.context = context;
         this.base = 12;
         nr = 1;
     }
@@ -40,22 +50,27 @@ public class Counter {
     }
 
     public void increaseBase() {
-        switch(base) {
-            case 12:
-                base = 25;
-                break;
-            case 25:
-                base = 50;
-                break;
-            case 50:
-                base = 100;
-                break;
-            case 100:
-                base = 400;
-                break;
-            case 400:
-                base = 12;
-                break;
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        Set<String> levels = prefs.getStringSet("base_candy_levels", new HashSet<String>());
+
+        int smallestLarger = Integer.MAX_VALUE;
+        int smallest = Integer.MAX_VALUE;
+        for (String lvl : levels) {
+            Log.d("Counter", "Level:" + lvl);
+            int v = Integer.valueOf(lvl);
+            if (v > base && v < smallestLarger) {
+                smallestLarger = v;
+            }
+            if (v < smallest) {
+                smallest = v;
+            }
+        }
+        if (smallestLarger != Integer.MAX_VALUE) {
+            base = smallestLarger;
+        } else if (smallest != Integer.MAX_VALUE) {
+            base = smallest;
+        } else {
+            base = 12;
         }
     }
 }

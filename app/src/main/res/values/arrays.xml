@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="candy_levels">
+        <item>12</item>
+        <item>25</item>
+        <item>50</item>
+        <item>100</item>
+        <item>400</item>
+    </string-array>
+    <string-array name="candy_values">
+        <item>12</item>
+        <item>25</item>
+        <item>50</item>
+        <item>100</item>
+        <item>400</item>
+    </string-array>
+</resources>
