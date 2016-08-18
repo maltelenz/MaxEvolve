@@ -74,7 +74,7 @@ public class EvolveCounterOverlayService extends OverlayService {
 
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(this)
-                        .setSmallIcon(R.mipmap.ic_launcher)
+                        .setSmallIcon(R.mipmap.notification)
                         .setContentTitle(getString(R.string.title_notification))
                         .setContentIntent(getShowIntent(shown))
                         .setColor(getResources().getColor(R.color.notification_color))
